@@ -1,6 +1,10 @@
 
 function mutation(arr) {
-  return arr;
+  var acceptableLetters = arr[0].toLowerCase();
+  var checkingLetters = arr[1].toLowerCase(); 
+
+  return checkingLetters.includes(acceptableLetters);
+
 }
 
-mutation(["hello", "hey"]);
+console.log(mutation(["hello", "hey"]));
