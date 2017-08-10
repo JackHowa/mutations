@@ -15,17 +15,17 @@ function mutation(mutationsArray) {
   var uniqueCheckingArray = sortedChecking.filter(function(element, position) {
     return sortedChecking.indexOf(element) == position;
   });
-
-  // join("") after the arrays are done
-
-  var acceptable = uniqueAcceptableArray.join("");
-  var checking = uniqueCheckingArray.join("");
   
-  console.log(acceptable);
-  console.log(checking);
+  for (i = 0; i < uniqueCheckingArray.length; i++) {
+    // index of returns -1 when checking[i], or one letter,
+    // not found in whole string of checking 
+    if (uniqueAcceptableArray.indexOf(uniqueCheckingArray[i]) === -1) {
+      return false; 
+    }
+  }
 
-  return acceptable.includes(checking);
-  // acceptable letter has to be in checking 
+  // if no non-matches found, then return true at the end 
+  return true; 
 }
 
   mutation(["floor", "for"]);
