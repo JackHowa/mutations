@@ -1,19 +1,15 @@
 function mutation(mutationsArray) {
   // find each string in the array 
   // convert to lowercase so no sorting or matching probs 
-  var acceptableLetters = mutationsArray[0].toLowerCase();
-  var checkingLetters = mutationsArray[1].toLowerCase();
-
-  // sort alphabetically to check order 
-  var sortedAcceptable = acceptableLetters.split("").sort();
-  var sortedChecking = checkingLetters.split("").sort();
+  var acceptableLetters = mutationsArray[0].toLowerCase().split("");
+  var checkingLetters = mutationsArray[1].toLowerCase().split("");
 
   // remove duplicates 
-  var uniqueAcceptableArray = sortedAcceptable.filter(function(element, position) {
-    return sortedAcceptable.indexOf(element) == position;
+  var uniqueAcceptableArray = acceptableLetters.filter(function(element, position) {
+    return acceptableLetters.indexOf(element) == position;
   });
-  var uniqueCheckingArray = sortedChecking.filter(function(element, position) {
-    return sortedChecking.indexOf(element) == position;
+  var uniqueCheckingArray = checkingLetters.filter(function(element, position) {
+    return checkingLetters.indexOf(element) == position;
   });
   
   for (i = 0; i < uniqueCheckingArray.length; i++) {
