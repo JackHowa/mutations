@@ -1,4 +1,3 @@
-
 function mutation(mutationsArray) {
   // find each string in the array 
   // convert to lowercase so no sorting or matching probs 
@@ -10,13 +9,23 @@ function mutation(mutationsArray) {
   var sortedChecking = checkingLetters.split("").sort();
 
   // remove duplicates 
+  var uniqueAcceptableArray = sortedAcceptable.filter(function(element, position) {
+    return sortedAcceptable.indexOf(element) == position;
+  });
+  var uniqueCheckingArray = sortedChecking.filter(function(element, position) {
+    return sortedChecking.indexOf(element) == position;
+  });
 
+  // join("") after the arrays are done
 
-  // n
+  var acceptable = uniqueAcceptableArray.join("");
+  var checking = uniqueCheckingArray.join("");
+  
+  console.log(acceptable);
+  console.log(checking);
 
-
-  return acceptableLetters.includes(checkingLetters);
+  return acceptable.includes(checking);
   // acceptable letter has to be in checking 
 }
 
-console.log(mutation(["hello", "hey"]));
+  mutation(["floor", "for"]);
